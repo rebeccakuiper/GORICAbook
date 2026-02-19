@@ -1,0 +1,423 @@
+<!DOCTYPE html>
+<html lang="" xml:lang="">
+<head>
+
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <title>Chapter 3 Obtain input &amp; output for GORICA | Guidelines for GORIC(A) input</title>
+  <meta name="description" content="Chapter 3 Obtain input &amp; output for GORICA | Guidelines for GORIC(A) input" />
+  <meta name="generator" content="bookdown 0.46 and GitBook 2.6.7" />
+
+  <meta property="og:title" content="Chapter 3 Obtain input &amp; output for GORICA | Guidelines for GORIC(A) input" />
+  <meta property="og:type" content="book" />
+  
+  
+  
+
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="Chapter 3 Obtain input &amp; output for GORICA | Guidelines for GORIC(A) input" />
+  
+  
+  
+
+<meta name="author" content="Rebecca M. Kuiper and Leonard Vanbrabant" />
+
+
+
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+  
+  
+<link rel="prev" href="generate-fictional-data.html"/>
+
+<script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/fuse.js@6.4.6/dist/fuse.min.js"></script>
+<link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-highlight.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-search.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-fontsettings.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-clipboard.css" rel="stylesheet" />
+
+
+
+
+
+
+
+
+<link href="libs/anchor-sections-1.1.0/anchor-sections.css" rel="stylesheet" />
+<link href="libs/anchor-sections-1.1.0/anchor-sections-hash.css" rel="stylesheet" />
+<script src="libs/anchor-sections-1.1.0/anchor-sections.js"></script>
+
+
+<style type="text/css">
+html { -webkit-text-size-adjust: 100%; }
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+    color: #aaaaaa;
+  }
+pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+code span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code span.at { color: #7d9029; } /* Attribute */
+code span.bn { color: #40a070; } /* BaseN */
+code span.bu { color: #008000; } /* BuiltIn */
+code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code span.ch { color: #4070a0; } /* Char */
+code span.cn { color: #880000; } /* Constant */
+code span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code span.dt { color: #902000; } /* DataType */
+code span.dv { color: #40a070; } /* DecVal */
+code span.er { color: #ff0000; font-weight: bold; } /* Error */
+code span.ex { } /* Extension */
+code span.fl { color: #40a070; } /* Float */
+code span.fu { color: #06287e; } /* Function */
+code span.im { color: #008000; font-weight: bold; } /* Import */
+code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+code span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code span.op { color: #666666; } /* Operator */
+code span.ot { color: #007020; } /* Other */
+code span.pp { color: #bc7a00; } /* Preprocessor */
+code span.sc { color: #4070a0; } /* SpecialChar */
+code span.ss { color: #bb6688; } /* SpecialString */
+code span.st { color: #4070a0; } /* String */
+code span.va { color: #19177c; } /* Variable */
+code span.vs { color: #4070a0; } /* VerbatimString */
+code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+</style>
+
+<style type="text/css">
+  
+  div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+</style>
+
+<link rel="stylesheet" href="style.css" type="text/css" />
+</head>
+
+<body>
+
+
+
+  <div class="book without-animation with-summary font-size-2 font-family-1" data-basepath=".">
+
+    <div class="book-summary">
+      <nav role="navigation">
+
+<ul class="summary">
+<li><a href="./">A GitBook for Teaching</a></li>
+
+<li class="divider"></li>
+<li class="chapter" data-level="1" data-path="types-of-input.html"><a href="types-of-input.html"><i class="fa fa-check"></i><b>1</b> Types of input</a></li>
+<li class="chapter" data-level="2" data-path="generate-fictional-data.html"><a href="generate-fictional-data.html"><i class="fa fa-check"></i><b>2</b> Generate fictional data</a></li>
+<li class="chapter" data-level="3" data-path="obtain-input-output-for-gorica.html"><a href="obtain-input-output-for-gorica.html"><i class="fa fa-check"></i><b>3</b> Obtain input &amp; output for GORICA</a>
+<ul>
+<li class="chapter" data-level="3.1" data-path="obtain-input-output-for-gorica.html"><a href="obtain-input-output-for-gorica.html#lm"><i class="fa fa-check"></i><b>3.1</b> lm</a>
+<ul>
+<li class="chapter" data-level="3.1.1" data-path="obtain-input-output-for-gorica.html"><a href="obtain-input-output-for-gorica.html#fit-object"><i class="fa fa-check"></i><b>3.1.1</b> fit object</a></li>
+<li class="chapter" data-level="3.1.2" data-path="obtain-input-output-for-gorica.html"><a href="obtain-input-output-for-gorica.html#extract-estimates"><i class="fa fa-check"></i><b>3.1.2</b> extract estimates</a></li>
+</ul></li>
+<li class="chapter" data-level="3.2" data-path="obtain-input-output-for-gorica.html"><a href="obtain-input-output-for-gorica.html#lavaan"><i class="fa fa-check"></i><b>3.2</b> lavaan</a>
+<ul>
+<li class="chapter" data-level="3.2.1" data-path="obtain-input-output-for-gorica.html"><a href="obtain-input-output-for-gorica.html#fit-object-1"><i class="fa fa-check"></i><b>3.2.1</b> fit object</a></li>
+<li class="chapter" data-level="3.2.2" data-path="obtain-input-output-for-gorica.html"><a href="obtain-input-output-for-gorica.html#extract-estimates-1"><i class="fa fa-check"></i><b>3.2.2</b> extract estimates</a></li>
+</ul></li>
+<li class="chapter" data-level="3.3" data-path="obtain-input-output-for-gorica.html"><a href="obtain-input-output-for-gorica.html#lmer-lme4"><i class="fa fa-check"></i><b>3.3</b> lmer / lme4</a>
+<ul>
+<li class="chapter" data-level="3.3.1" data-path="obtain-input-output-for-gorica.html"><a href="obtain-input-output-for-gorica.html#fit-object-2"><i class="fa fa-check"></i><b>3.3.1</b> fit object</a></li>
+<li class="chapter" data-level="3.3.2" data-path="obtain-input-output-for-gorica.html"><a href="obtain-input-output-for-gorica.html#extract-estimates-2"><i class="fa fa-check"></i><b>3.3.2</b> extract estimates</a></li>
+</ul></li>
+</ul></li>
+<li class="divider"></li>
+<li><a href="https://github.com/rstudio/bookdown" target="blank">Published with bookdown</a></li>
+
+</ul>
+
+      </nav>
+    </div>
+
+    <div class="book-body">
+      <div class="body-inner">
+        <div class="book-header" role="navigation">
+          <h1>
+            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">Guidelines for GORIC(A) input</a>
+          </h1>
+        </div>
+
+        <div class="page-wrapper" tabindex="-1" role="main">
+          <div class="page-inner">
+
+            <section class="normal" id="section-">
+<div id="obtain-input-output-for-gorica" class="section level1 hasAnchor" number="3">
+<h1><span class="header-section-number">Chapter 3</span> Obtain input &amp; output for GORICA<a href="obtain-input-output-for-gorica.html#obtain-input-output-for-gorica" class="anchor-section" aria-label="Anchor link to header"></a></h1>
+<p>Next, I will show how one can extract the input needed and evaluate the hypothesis of interest based on that.</p>
+<div class="sourceCode" id="cb2"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb2-1"><a href="obtain-input-output-for-gorica.html#cb2-1" tabindex="-1"></a><span class="co"># Hypothesis of interest using the default R labeling when predictors are</span></span>
+<span id="cb2-2"><a href="obtain-input-output-for-gorica.html#cb2-2" tabindex="-1"></a><span class="co"># called x1, x2, and x3</span></span>
+<span id="cb2-3"><a href="obtain-input-output-for-gorica.html#cb2-3" tabindex="-1"></a>H1 <span class="ot">&lt;-</span> <span class="st">&quot;x1 &gt; x2 &gt; x3&quot;</span></span></code></pre></div>
+<div id="lm" class="section level2 hasAnchor" number="3.1">
+<h2><span class="header-section-number">3.1</span> lm<a href="obtain-input-output-for-gorica.html#lm" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<div class="sourceCode" id="cb3"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb3-1"><a href="obtain-input-output-for-gorica.html#cb3-1" tabindex="-1"></a>fit.lm <span class="ot">&lt;-</span> <span class="fu">lm</span>(y <span class="sc">~</span> <span class="dv">1</span> <span class="sc">+</span> x1 <span class="sc">+</span> x2 <span class="sc">+</span> x3, <span class="at">data =</span> data)</span></code></pre></div>
+<div id="fit-object" class="section level3 hasAnchor" number="3.1.1">
+<h3><span class="header-section-number">3.1.1</span> fit object<a href="obtain-input-output-for-gorica.html#fit-object" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<div class="sourceCode" id="cb4"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb4-1"><a href="obtain-input-output-for-gorica.html#cb4-1" tabindex="-1"></a><span class="co"># Apply GORIC #</span></span>
+<span id="cb4-2"><a href="obtain-input-output-for-gorica.html#cb4-2" tabindex="-1"></a><span class="fu">set.seed</span>(<span class="dv">123</span>)</span>
+<span id="cb4-3"><a href="obtain-input-output-for-gorica.html#cb4-3" tabindex="-1"></a>goric_lm <span class="ot">&lt;-</span> <span class="fu">goric</span>(fit.lm, <span class="at">hypotheses =</span> <span class="fu">list</span>(H1))</span>
+<span id="cb4-4"><a href="obtain-input-output-for-gorica.html#cb4-4" tabindex="-1"></a>goric_lm</span></code></pre></div>
+<pre><code>restriktor (0.6-30): generalized order-restricted information criterion: 
+
+Results:
+        model    loglik  penalty     goric  loglik.weights  penalty.weights  goric.weights
+1          H1  -834.834    3.815  1677.297           0.989            0.705          0.995
+2  complement  -839.346    4.685  1688.063           0.011            0.295          0.005
+
+Conclusion:
+The order-restricted hypothesis &#39;H1&#39; has 217.69 times more support than its complement.</code></pre>
+<div class="sourceCode" id="cb6"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb6-1"><a href="obtain-input-output-for-gorica.html#cb6-1" tabindex="-1"></a><span class="co"># Apply GORICA # When using an lm object, then by default goric; so overrule:</span></span>
+<span id="cb6-2"><a href="obtain-input-output-for-gorica.html#cb6-2" tabindex="-1"></a><span class="fu">set.seed</span>(<span class="dv">123</span>)</span>
+<span id="cb6-3"><a href="obtain-input-output-for-gorica.html#cb6-3" tabindex="-1"></a>gorica_lm <span class="ot">&lt;-</span> <span class="fu">goric</span>(fit.lm, <span class="at">hypotheses =</span> <span class="fu">list</span>(H1), <span class="at">type =</span> <span class="st">&quot;gorica&quot;</span>)</span>
+<span id="cb6-4"><a href="obtain-input-output-for-gorica.html#cb6-4" tabindex="-1"></a>gorica_lm</span></code></pre></div>
+<pre><code>restriktor (0.6-30): generalized order-restricted information criterion approximation:
+
+Results:
+        model  loglik  penalty   gorica  loglik.weights  penalty.weights  gorica.weights
+1          H1   9.222    2.815  -12.815           0.990            0.705           0.996
+2  complement   4.676    3.685   -1.980           0.010            0.295           0.004
+
+Conclusion:
+The order-restricted hypothesis &#39;H1&#39; has 225.25 times more support than its complement.</code></pre>
+<div class="sourceCode" id="cb8"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb8-1"><a href="obtain-input-output-for-gorica.html#cb8-1" tabindex="-1"></a><span class="co"># Note that this is currently based on a covariance matrix using N-k instead of</span></span>
+<span id="cb8-2"><a href="obtain-input-output-for-gorica.html#cb8-2" tabindex="-1"></a><span class="co"># N (see also below).  TO DO</span></span></code></pre></div>
+</div>
+<div id="extract-estimates" class="section level3 hasAnchor" number="3.1.2">
+<h3><span class="header-section-number">3.1.2</span> extract estimates<a href="obtain-input-output-for-gorica.html#extract-estimates" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<div class="sourceCode" id="cb9"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb9-1"><a href="obtain-input-output-for-gorica.html#cb9-1" tabindex="-1"></a>est_lm <span class="ot">&lt;-</span> <span class="fu">coef</span>(fit.lm)</span>
+<span id="cb9-2"><a href="obtain-input-output-for-gorica.html#cb9-2" tabindex="-1"></a>VCOV_lm <span class="ot">&lt;-</span> <span class="fu">vcov</span>(fit.lm)</span>
+<span id="cb9-3"><a href="obtain-input-output-for-gorica.html#cb9-3" tabindex="-1"></a><span class="co"># Since lm and lmer use N-k instead of N, with k the number of (regression)</span></span>
+<span id="cb9-4"><a href="obtain-input-output-for-gorica.html#cb9-4" tabindex="-1"></a><span class="co"># coefficients to be estimated:</span></span>
+<span id="cb9-5"><a href="obtain-input-output-for-gorica.html#cb9-5" tabindex="-1"></a>N <span class="ot">&lt;-</span> <span class="fu">dim</span>(data)[<span class="dv">1</span>]  <span class="co"># = n = 600</span></span>
+<span id="cb9-6"><a href="obtain-input-output-for-gorica.html#cb9-6" tabindex="-1"></a>k <span class="ot">&lt;-</span> <span class="fu">dim</span>(data)[<span class="dv">2</span>]  <span class="co"># = 1+3, namely: 1 intercept + 3 regression slopes</span></span>
+<span id="cb9-7"><a href="obtain-input-output-for-gorica.html#cb9-7" tabindex="-1"></a>VCOV_lm <span class="ot">&lt;-</span> <span class="fu">vcov</span>(fit.lm) <span class="sc">*</span> (N <span class="sc">-</span> k)<span class="sc">/</span>N</span>
+<span id="cb9-8"><a href="obtain-input-output-for-gorica.html#cb9-8" tabindex="-1"></a><span class="co"># VCOV_lm &lt;- vcov(fit.lm)*(N-1)/N TO DO</span></span>
+<span id="cb9-9"><a href="obtain-input-output-for-gorica.html#cb9-9" tabindex="-1"></a></span>
+<span id="cb9-10"><a href="obtain-input-output-for-gorica.html#cb9-10" tabindex="-1"></a><span class="co"># Apply GORICA #</span></span>
+<span id="cb9-11"><a href="obtain-input-output-for-gorica.html#cb9-11" tabindex="-1"></a><span class="fu">set.seed</span>(<span class="dv">123</span>)</span>
+<span id="cb9-12"><a href="obtain-input-output-for-gorica.html#cb9-12" tabindex="-1"></a>gorica_lm_est <span class="ot">&lt;-</span> <span class="fu">goric</span>(est_lm, <span class="at">VCOV =</span> VCOV_lm, <span class="at">hypotheses =</span> <span class="fu">list</span>(H1))</span>
+<span id="cb9-13"><a href="obtain-input-output-for-gorica.html#cb9-13" tabindex="-1"></a>gorica_lm_est</span></code></pre></div>
+<pre><code>restriktor (0.6-30): generalized order-restricted information criterion approximation:
+
+Results:
+        model  loglik  penalty   gorica  loglik.weights  penalty.weights  gorica.weights
+1          H1   9.222    2.815  -12.815           0.990            0.705           0.996
+2  complement   4.676    3.685   -1.980           0.010            0.295           0.004
+
+Conclusion:
+The order-restricted hypothesis &#39;H1&#39; has 225.25 times more support than its complement.</code></pre>
+</div>
+</div>
+<div id="lavaan" class="section level2 hasAnchor" number="3.2">
+<h2><span class="header-section-number">3.2</span> lavaan<a href="obtain-input-output-for-gorica.html#lavaan" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<div class="sourceCode" id="cb11"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb11-1"><a href="obtain-input-output-for-gorica.html#cb11-1" tabindex="-1"></a><span class="fu">library</span>(lavaan)</span></code></pre></div>
+<pre><code>This is lavaan 0.6-21
+lavaan is FREE software! Please report any bugs.</code></pre>
+<div class="sourceCode" id="cb13"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb13-1"><a href="obtain-input-output-for-gorica.html#cb13-1" tabindex="-1"></a>fit.sem <span class="ot">&lt;-</span> <span class="fu">sem</span>(<span class="st">&quot;y ~ 1 + x1 + x2 + x3&quot;</span>, <span class="at">data =</span> data)</span>
+<span id="cb13-2"><a href="obtain-input-output-for-gorica.html#cb13-2" tabindex="-1"></a></span>
+<span id="cb13-3"><a href="obtain-input-output-for-gorica.html#cb13-3" tabindex="-1"></a><span class="co"># The default labeling of lavaan / sem() is:</span></span>
+<span id="cb13-4"><a href="obtain-input-output-for-gorica.html#cb13-4" tabindex="-1"></a><span class="fu">names</span>(<span class="fu">coef</span>(fit.sem))</span></code></pre></div>
+<pre><code>[1] &quot;y~1&quot;  &quot;y~x1&quot; &quot;y~x2&quot; &quot;y~x3&quot; &quot;y~~y&quot;</code></pre>
+<div class="sourceCode" id="cb15"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb15-1"><a href="obtain-input-output-for-gorica.html#cb15-1" tabindex="-1"></a><span class="co"># The ~ can (currently) not be used in the hypothesis, therefore, you want to</span></span>
+<span id="cb15-2"><a href="obtain-input-output-for-gorica.html#cb15-2" tabindex="-1"></a><span class="co"># label the parameters (of interest) yourself:</span></span>
+<span id="cb15-3"><a href="obtain-input-output-for-gorica.html#cb15-3" tabindex="-1"></a>fit.sem <span class="ot">&lt;-</span> <span class="fu">sem</span>(<span class="st">&quot;y ~ 1 + beta1*x1 + beta2*x2 + beta3*x3&quot;</span>, <span class="at">data =</span> data)</span>
+<span id="cb15-4"><a href="obtain-input-output-for-gorica.html#cb15-4" tabindex="-1"></a></span>
+<span id="cb15-5"><a href="obtain-input-output-for-gorica.html#cb15-5" tabindex="-1"></a><span class="co"># Now, specify the hypothesis using this labeling:</span></span>
+<span id="cb15-6"><a href="obtain-input-output-for-gorica.html#cb15-6" tabindex="-1"></a>H1_sem <span class="ot">&lt;-</span> <span class="st">&quot;beta1 &gt; beta2 &gt; beta3&quot;</span></span></code></pre></div>
+<div id="fit-object-1" class="section level3 hasAnchor" number="3.2.1">
+<h3><span class="header-section-number">3.2.1</span> fit object<a href="obtain-input-output-for-gorica.html#fit-object-1" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<div class="sourceCode" id="cb16"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb16-1"><a href="obtain-input-output-for-gorica.html#cb16-1" tabindex="-1"></a><span class="co"># Apply GORICA #</span></span>
+<span id="cb16-2"><a href="obtain-input-output-for-gorica.html#cb16-2" tabindex="-1"></a><span class="fu">set.seed</span>(<span class="dv">123</span>)</span>
+<span id="cb16-3"><a href="obtain-input-output-for-gorica.html#cb16-3" tabindex="-1"></a>gorica_sem <span class="ot">&lt;-</span> <span class="fu">goric</span>(fit.sem, <span class="at">hypotheses =</span> <span class="fu">list</span>(<span class="at">H1 =</span> H1_sem))</span></code></pre></div>
+<pre><code>
+restriktor Message: The covariance matrix of the estimates was obtained via &#39;vcov()&#39;. This is the biased (restricted) sample covariance matrix, not the unbiased version based on the total sample size (&#39;N&#39;).</code></pre>
+<div class="sourceCode" id="cb18"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb18-1"><a href="obtain-input-output-for-gorica.html#cb18-1" tabindex="-1"></a>gorica_sem</span></code></pre></div>
+<pre><code>restriktor (0.6-30): generalized order-restricted information criterion approximation:
+
+Results:
+        model  loglik  penalty   gorica  loglik.weights  penalty.weights  gorica.weights
+1          H1   6.915    1.815  -10.201           0.990            0.705           0.996
+2  complement   2.368    2.685    0.634           0.010            0.295           0.004
+
+Conclusion:
+The order-restricted hypothesis &#39;H1&#39; has 225.25 times more support than its complement.</code></pre>
+</div>
+<div id="extract-estimates-1" class="section level3 hasAnchor" number="3.2.2">
+<h3><span class="header-section-number">3.2.2</span> extract estimates<a href="obtain-input-output-for-gorica.html#extract-estimates-1" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<div class="sourceCode" id="cb20"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb20-1"><a href="obtain-input-output-for-gorica.html#cb20-1" tabindex="-1"></a>est_sem <span class="ot">&lt;-</span> <span class="fu">coef</span>(fit.sem)</span>
+<span id="cb20-2"><a href="obtain-input-output-for-gorica.html#cb20-2" tabindex="-1"></a>VCOV_sem <span class="ot">&lt;-</span> <span class="fu">vcov</span>(fit.sem)</span>
+<span id="cb20-3"><a href="obtain-input-output-for-gorica.html#cb20-3" tabindex="-1"></a></span>
+<span id="cb20-4"><a href="obtain-input-output-for-gorica.html#cb20-4" tabindex="-1"></a><span class="co"># Apply GORICA #</span></span>
+<span id="cb20-5"><a href="obtain-input-output-for-gorica.html#cb20-5" tabindex="-1"></a><span class="fu">set.seed</span>(<span class="dv">123</span>)</span>
+<span id="cb20-6"><a href="obtain-input-output-for-gorica.html#cb20-6" tabindex="-1"></a>gorica_sem_est <span class="ot">&lt;-</span> <span class="fu">goric</span>(est_sem, <span class="at">VCOV =</span> VCOV_sem, <span class="at">hypotheses =</span> <span class="fu">list</span>(<span class="at">H1 =</span> H1_sem))</span>
+<span id="cb20-7"><a href="obtain-input-output-for-gorica.html#cb20-7" tabindex="-1"></a>gorica_sem_est</span></code></pre></div>
+<pre><code>restriktor (0.6-30): generalized order-restricted information criterion approximation:
+
+Results:
+        model  loglik  penalty   gorica  loglik.weights  penalty.weights  gorica.weights
+1          H1  11.210    3.815  -14.791           0.990            0.705           0.996
+2  complement   6.664    4.685   -3.957           0.010            0.295           0.004
+
+Conclusion:
+The order-restricted hypothesis &#39;H1&#39; has 225.25 times more support than its complement.</code></pre>
+</div>
+</div>
+<div id="lmer-lme4" class="section level2 hasAnchor" number="3.3">
+<h2><span class="header-section-number">3.3</span> lmer / lme4<a href="obtain-input-output-for-gorica.html#lmer-lme4" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<div class="sourceCode" id="cb22"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb22-1"><a href="obtain-input-output-for-gorica.html#cb22-1" tabindex="-1"></a><span class="fu">library</span>(lme4)</span></code></pre></div>
+<pre><code>Loading required package: Matrix</code></pre>
+<div class="sourceCode" id="cb24"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb24-1"><a href="obtain-input-output-for-gorica.html#cb24-1" tabindex="-1"></a>fit.lmer <span class="ot">&lt;-</span> <span class="fu">lmer</span>(<span class="st">&quot;y ~ 1 + x1 + x2 + x3 + (1 | ID)&quot;</span>, <span class="at">data =</span> data_ID)</span></code></pre></div>
+<pre><code>boundary (singular) fit: see help(&#39;isSingular&#39;)</code></pre>
+<div id="fit-object-2" class="section level3 hasAnchor" number="3.3.1">
+<h3><span class="header-section-number">3.3.1</span> fit object<a href="obtain-input-output-for-gorica.html#fit-object-2" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<div class="sourceCode" id="cb26"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb26-1"><a href="obtain-input-output-for-gorica.html#cb26-1" tabindex="-1"></a><span class="co"># Apply GORICA #</span></span>
+<span id="cb26-2"><a href="obtain-input-output-for-gorica.html#cb26-2" tabindex="-1"></a><span class="fu">set.seed</span>(<span class="dv">123</span>)</span>
+<span id="cb26-3"><a href="obtain-input-output-for-gorica.html#cb26-3" tabindex="-1"></a>gorica_lmer <span class="ot">&lt;-</span> <span class="fu">goric</span>(fit.lmer, <span class="at">hypotheses =</span> <span class="fu">list</span>(H1))</span></code></pre></div>
+<pre><code>
+restriktor Message: The covariance matrix of the estimates was obtained via &#39;vcov()&#39;. This is the biased (restricted) sample covariance matrix, not the unbiased version based on the total sample size (&#39;N&#39;).</code></pre>
+<div class="sourceCode" id="cb28"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb28-1"><a href="obtain-input-output-for-gorica.html#cb28-1" tabindex="-1"></a>gorica_lmer</span></code></pre></div>
+<pre><code>restriktor (0.6-30): generalized order-restricted information criterion approximation:
+
+Results:
+        model  loglik  penalty   gorica  loglik.weights  penalty.weights  gorica.weights
+1          H1   9.209    2.815  -12.788           0.989            0.705           0.995
+2  complement   4.692    3.685   -2.014           0.011            0.295           0.005
+
+Conclusion:
+The order-restricted hypothesis &#39;H1&#39; has 218.52 times more support than its complement.</code></pre>
+<div class="sourceCode" id="cb30"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb30-1"><a href="obtain-input-output-for-gorica.html#cb30-1" tabindex="-1"></a><span class="co"># Note that this is currently based on a covariance matrix using N-k instead of</span></span>
+<span id="cb30-2"><a href="obtain-input-output-for-gorica.html#cb30-2" tabindex="-1"></a><span class="co"># N (see also below).</span></span></code></pre></div>
+</div>
+<div id="extract-estimates-2" class="section level3 hasAnchor" number="3.3.2">
+<h3><span class="header-section-number">3.3.2</span> extract estimates<a href="obtain-input-output-for-gorica.html#extract-estimates-2" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<div class="sourceCode" id="cb31"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb31-1"><a href="obtain-input-output-for-gorica.html#cb31-1" tabindex="-1"></a>est_lmer <span class="ot">&lt;-</span> <span class="fu">fixef</span>(fit.lmer)</span>
+<span id="cb31-2"><a href="obtain-input-output-for-gorica.html#cb31-2" tabindex="-1"></a>VCOV_lmer <span class="ot">&lt;-</span> <span class="fu">vcov</span>(fit.lmer)</span>
+<span id="cb31-3"><a href="obtain-input-output-for-gorica.html#cb31-3" tabindex="-1"></a><span class="co"># Since lm and lmer use N-k instead of N, with k the number of (regression)</span></span>
+<span id="cb31-4"><a href="obtain-input-output-for-gorica.html#cb31-4" tabindex="-1"></a><span class="co"># coefficients to be estimated:</span></span>
+<span id="cb31-5"><a href="obtain-input-output-for-gorica.html#cb31-5" tabindex="-1"></a>N <span class="ot">&lt;-</span> <span class="fu">dim</span>(data_ID)[<span class="dv">1</span>]  <span class="co"># = n = 600</span></span>
+<span id="cb31-6"><a href="obtain-input-output-for-gorica.html#cb31-6" tabindex="-1"></a><span class="co"># k &lt;- dim(data_ID)[2]-1 # without ID, only fixed effects, so 1+3, namely: 1</span></span>
+<span id="cb31-7"><a href="obtain-input-output-for-gorica.html#cb31-7" tabindex="-1"></a><span class="co"># intercept + 3 regression slopes; or use:</span></span>
+<span id="cb31-8"><a href="obtain-input-output-for-gorica.html#cb31-8" tabindex="-1"></a>k <span class="ot">&lt;-</span> <span class="fu">dim</span>(VCOV_lmer)[<span class="dv">2</span>]</span>
+<span id="cb31-9"><a href="obtain-input-output-for-gorica.html#cb31-9" tabindex="-1"></a>VCOV_lmer <span class="ot">&lt;-</span> <span class="fu">vcov</span>(fit.lmer) <span class="sc">*</span> (N <span class="sc">-</span> k)<span class="sc">/</span>N</span>
+<span id="cb31-10"><a href="obtain-input-output-for-gorica.html#cb31-10" tabindex="-1"></a></span>
+<span id="cb31-11"><a href="obtain-input-output-for-gorica.html#cb31-11" tabindex="-1"></a><span class="co"># Apply GORICA #</span></span>
+<span id="cb31-12"><a href="obtain-input-output-for-gorica.html#cb31-12" tabindex="-1"></a><span class="fu">set.seed</span>(<span class="dv">123</span>)</span>
+<span id="cb31-13"><a href="obtain-input-output-for-gorica.html#cb31-13" tabindex="-1"></a>gorica_lmer_est <span class="ot">&lt;-</span> <span class="fu">goric</span>(est_lmer, <span class="at">VCOV =</span> VCOV_lmer, <span class="at">hypotheses =</span> <span class="fu">list</span>(H1))</span>
+<span id="cb31-14"><a href="obtain-input-output-for-gorica.html#cb31-14" tabindex="-1"></a>gorica_lmer_est</span></code></pre></div>
+<pre><code>restriktor (0.6-30): generalized order-restricted information criterion approximation:
+
+Results:
+        model  loglik  penalty   gorica  loglik.weights  penalty.weights  gorica.weights
+1          H1   9.222    2.815  -12.815           0.990            0.705           0.996
+2  complement   4.676    3.685   -1.980           0.010            0.295           0.004
+
+Conclusion:
+The order-restricted hypothesis &#39;H1&#39; has 225.25 times more support than its complement.</code></pre>
+<div class="tocify-extend-page" data-unique="tocify-extend-page" style="height: 0;">
+
+</div>
+
+</div>
+</div>
+</div>
+            </section>
+
+          </div>
+        </div>
+      </div>
+<a href="generate-fictional-data.html" class="navigation navigation-prev navigation-unique" aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+
+    </div>
+  </div>
+<script src="libs/gitbook-2.6.7/js/app.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/clipboard.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-search.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-sharing.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-fontsettings.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-bookdown.js"></script>
+<script src="libs/gitbook-2.6.7/js/jquery.highlight.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-clipboard.js"></script>
+<script>
+gitbook.require(["gitbook"], function(gitbook) {
+gitbook.start({
+  "sharing": {
+    "github": false,
+    "facebook": true,
+    "twitter": true,
+    "linkedin": false,
+    "weibo": false,
+    "instapaper": false,
+    "vk": false,
+    "whatsapp": false,
+    "all": ["facebook", "twitter", "linkedin", "weibo", "instapaper"]
+  },
+  "fontsettings": {
+    "theme": "white",
+    "family": "sans",
+    "size": 2
+  },
+  "edit": {
+    "link": "https://github.com/cjvanlissa/gitbook-demo/edit/master/Guidelines_input_GORIC.Rmd",
+    "text": "Edit"
+  },
+  "history": {
+    "link": null,
+    "text": null
+  },
+  "view": {
+    "link": null,
+    "text": null
+  },
+  "download": ["gitbook-gorica-gitbook.pdf"],
+  "search": {
+    "engine": "fuse",
+    "options": null
+  },
+  "toc": {
+    "collapse": "subsection"
+  }
+});
+});
+</script>
+
+</body>
+
+</html>

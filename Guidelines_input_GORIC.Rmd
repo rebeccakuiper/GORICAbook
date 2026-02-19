@@ -1,0 +1,243 @@
+---
+title: "Guidelines for GORIC(A) input"
+author: "Rebecca M. Kuiper and Leonard Vanbrabant"
+date: "`r format(Sys.time(), '%d %B %Y')`"
+output:
+  #pdf_document:
+  #  toc: yes
+  html_document:
+    toc: yes
+    toc_float: yes
+    number_sections: yes
+fontsize: 14pt
+editor_options:
+  chunk_output_type: console
+---
+
+
+<style>
+body {
+  width: 100%;
+  margin: 0 auto;
+}
+</style>
+
+
+```{r setup, include = FALSE}
+knitr::opts_chunk$set(tidy.opts = list(width.cutoff = 80), tidy = TRUE)
+knitr::opts_chunk$set(comment = NA, warning = FALSE)
+options(width = 1200) # width console output
+
+## First, install the package, if you have not done this already:
+if (!require("restriktor")) install.packages("restriktor")
+
+## Then, load the packages:
+library(restriktor) # for the goric function
+
+# If you want to use restriktor from github:
+#if (!require("devtools")) install.packages("devtools")
+#library(devtools) 
+#install_github("LeonardV/restriktor")
+#library(restriktor) # for goric function
+```
+
+# Types of input
+
+The `goric` function of `restriktor` takes different forms of input:  
+* enter fitted unconstrained object:  
+- lm,  
+- rlm,   
+- glm,  
+- glmer(Mod),  
+- nlmer(Mod),  
+- lmer(Mod),  
+- CTmeta,  
+- rma,  
+- lavaan; 
+* enter the (structural) parameter estimates (possibly, standardized) and their covariance matrix.  
+Functions that can often be used for extrcation:  
+- coef() & vcov()  
+- fixef() & vcov()  
+
+
+Please note that:  
+* The GORIC can only be calculated for lm objects.  
+* The GORIC (type = 'goric') is the default for lm objects, while GORICA (type = 'gorica') is for the other input options.  
+* In the GORICA, the estimates are assumed to be normally distributed. So, for some models when sample size is low, this assumption may not hold. In that case, it is often not clear how well the GORICA performs. See Altinisik et al 2021, for some simulations regarding logistic regression and SEM models (for which the GORICA performs well).
+
+Next, I will generate (regression) data. 
+Afterwards, I will show some example for how one can extract the input needed and evaluate the hypothesis of interest based on that.
+
+# Generate fictional data
+
+```{r}
+# Population values regression coefficients (for 3 predictors)
+coeffs <- c(2, 1.8, 1.6)
+
+# Sample size
+n <- 600
+
+# Generate X (predictors)
+set.seed(123)
+x1 <- rnorm(n, 0, 1)
+x2 <- rnorm(n, 0, 1)
+x3 <- rnorm(n, 0, 1)
+data_unstand <- cbind(x1, x2, x3)
+# Standardize data - since parameters for continuous variables will be compared
+data <- as.data.frame(scale(data_unstand)) # Standardized!
+
+# Generate y (outcome)
+y <- coeffs[1]*data$x1 + 
+  coeffs[2]*data$x2 + 
+  coeffs[3]*data$x3 + 
+  rnorm(n)
+data$y <- y
+
+# To also use lmer / lme4, we also need:
+data_ID <- data
+data_ID$ID <- 1:(dim(data)[1]/10)
+```
+
+
+# Obtain input & output for GORICA
+
+Next, I will show how one can extract the input needed and evaluate the hypothesis of interest based on that.
+
+```{r}
+# Hypothesis of interest
+# using the default R labeling when predictors are called x1, x2, and x3
+H1 <- "x1 > x2 > x3"
+```
+
+
+## lm
+
+```{r}
+fit.lm <- lm(y ~ 1 + x1 + x2 + x3, data = data)
+```
+
+### fit object
+
+```{r}
+# Apply GORIC #
+set.seed(123) 
+goric_lm <- goric(fit.lm, 
+                  hypotheses = list(H1))
+goric_lm
+
+# Apply GORICA #
+# When using an lm object, then by default goric; so overrule:
+set.seed(123) 
+gorica_lm <- goric(fit.lm, 
+                   hypotheses = list(H1),
+                   type = "gorica")
+gorica_lm
+# Note that this is currently based on a covariance matrix using N-k instead of N (see also below).
+# TO DO
+```
+
+### extract estimates
+
+```{r}
+est_lm <- coef(fit.lm)
+VCOV_lm <- vcov(fit.lm)
+# Since lm and lmer use N-k instead of N,
+# with k the number of (regression) coefficients to be estimated:
+N <- dim(data)[1] # = n = 600
+k <- dim(data)[2] # = 1+3, namely: 1 intercept + 3 regression slopes
+VCOV_lm <- vcov(fit.lm)*(N-k)/N
+#VCOV_lm <- vcov(fit.lm)*(N-1)/N
+# TO DO
+
+# Apply GORICA #
+set.seed(123) 
+gorica_lm_est <- goric(est_lm, VCOV = VCOV_lm,
+                       hypotheses = list(H1))
+gorica_lm_est
+```
+
+## lavaan
+
+```{r}
+library(lavaan)
+
+fit.sem <- sem('y ~ 1 + x1 + x2 + x3', data = data)
+
+#The default labeling of lavaan / sem() is:
+names(coef(fit.sem))
+# The ~ can (currently) not be used in the hypothesis, 
+# therefore, you want to label the parameters (of interest) yourself:
+fit.sem <- sem('y ~ 1 + beta1*x1 + beta2*x2 + beta3*x3', data = data)
+
+# Now, specify the hypothesis using this labeling:
+H1_sem <- "beta1 > beta2 > beta3"
+```
+
+### fit object
+
+```{r}
+# Apply GORICA #
+set.seed(123) 
+gorica_sem <- goric(fit.sem, 
+                   hypotheses = list(H1 = H1_sem))
+gorica_sem
+```
+
+
+### extract estimates
+
+```{r}
+est_sem <- coef(fit.sem)
+VCOV_sem <- vcov(fit.sem)
+
+# Apply GORICA #
+set.seed(123) 
+gorica_sem_est <- goric(est_sem, VCOV = VCOV_sem,
+                       hypotheses = list(H1 = H1_sem))
+gorica_sem_est
+```
+
+
+## lmer / lme4
+
+```{r}
+library(lme4)
+fit.lmer <- lmer('y ~ 1 + x1 + x2 + x3 + (1 | ID)', data = data_ID)
+
+```
+
+### fit object
+
+```{r}
+# Apply GORICA #
+set.seed(123) 
+gorica_lmer <- goric(fit.lmer, 
+                     hypotheses = list(H1))
+gorica_lmer
+# Note that this is currently based on a covariance matrix using N-k instead of N (see also below).
+```
+
+### extract estimates
+
+```{r}
+est_lmer <- fixef(fit.lmer)
+VCOV_lmer <- vcov(fit.lmer)
+# Since lm and lmer use N-k instead of N,
+# with k the number of (regression) coefficients to be estimated:
+N <- dim(data_ID)[1] # = n = 600
+#k <- dim(data_ID)[2]-1 # without ID, only fixed effects, so 1+3, namely: 1 intercept + 3 regression slopes; or use:
+k <- dim(VCOV_lmer)[2]
+VCOV_lmer <- vcov(fit.lmer)*(N-k)/N
+
+# Apply GORICA #
+set.seed(123) 
+gorica_lmer_est <- goric(est_lmer, VCOV = VCOV_lmer,
+                         hypotheses = list(H1))
+gorica_lmer_est
+```
+
+
+
+
+[//]: #The following line is needed to prevent R Markdown from including a lot of white space below the last content.
+<div class="tocify-extend-page" data-unique="tocify-extend-page" style="height: 0;"></div>
