@@ -1,6 +1,7 @@
 book_filename: "GORICA-gitbook"
 #knit_root_dir: "C:/Werk/Git/Tutorials---Source-files"
-rmd_files: ["Guidelines_input_GORIC.Rmd",
+rmd_files: ["index.Rmd", 
+"Guidelines_input_GORIC.Rmd",
 "Intro_to_GORIC_in_R.Rmd"]
 # "Guidelines_output_GORIC.Rmd",
 output_dir: "docs"
